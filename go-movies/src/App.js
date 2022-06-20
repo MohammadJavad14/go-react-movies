@@ -3,8 +3,9 @@ import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import Movies from "./components/Movies";
 import Home from "./components/Home";
 import Admin from "./components/Admin";
-import Categories from "./components/Categories";
 import OneMovie from "./components/OneMovie";
+import Genres from "./components/Genres";
+import OneGenre from "./components/OneGenre";
 
 
 export default function App() {
@@ -28,7 +29,7 @@ export default function App() {
                   <Link to="/movies">Movies</Link>
                 </li>
                 <li className='list-group-item'>
-                  <Link to="/by-category">Categories</Link>
+                  <Link to="/genres">Genres</Link>
                 </li>
                 <li className='list-group-item'>
                   <Link to="/admin">Manage Catalogue</Link>
@@ -42,9 +43,8 @@ export default function App() {
               <Route path="/admin" element={ <Admin />} />
               <Route path="/movies" element={ <Movies />} />
               <Route path="/movies/:id" element={<OneMovie />} />
-              <Route exact path="/by-category" element={ <CategoryPage />} />
-              <Route exact path="/by-category/drama" element={<Categories />} />
-              <Route exact path="/by-category/comedy" element={<Categories />} />
+              <Route path="/genre/:id" element={<OneGenre />} />
+              <Route exact path="/genres" element={ <Genres />} />
             </Routes>
           </div>
          </div>
@@ -55,17 +55,6 @@ export default function App() {
 
 
 
-function CategoryPage(){
-  return(
-    <div>
-      <h2>Categories</h2>
-      <ul>
-        <li><Link to="comedy">Comedy</Link></li>
-        <li><Link to="drama">Drama</Link></li>
-      </ul>
-    </div>
-  );
-}
 
 
 
